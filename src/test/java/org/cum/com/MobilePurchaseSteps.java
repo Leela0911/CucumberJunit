@@ -3,6 +3,8 @@ package org.cum.com;
 
 
 import java.awt.List;
+import java.util.Collection;
+import java.util.Map;
 import java.util.Set;
 
 import org.openqa.selenium.By;
@@ -18,6 +20,7 @@ import cucumber.api.java.en.When;
 public class MobilePurchaseSteps {
 	static WebDriver driver;
 	static String txt;
+	
 	@Given("user lanuch flipkart")
 	public void user_lanuch_flipkart() {
 		System.setProperty("webdriver.chrome.driver", "F:\\MS-Office 2007\\Private\\eclipse\\CumcumberJunit\\driver\\chromedriver.exe");
@@ -50,6 +53,17 @@ public class MobilePurchaseSteps {
 		search.click();
 		Thread.sleep(4000);
 	}
+
+	@When("user search mobile by using one dim map")
+	public void user_search_mobile_by_using_one_dim_map(io.cucumber.datatable.DataTable dataTable) throws InterruptedException {
+	Map<String, String> asMap= dataTable.asMap(String.class,String.class);
+	   WebElement searchtxt = driver.findElement(By.xpath("//input[@type='text']"));
+		searchtxt.sendKeys(asMap.get("phone2"),Keys.ENTER);
+		WebElement search = driver.findElement(By.xpath("//button[@type='submit']"));
+		search.click();
+		Thread.sleep(4000);
+		}
+
 
 
 	@When("user choose the mobile and doing payment")

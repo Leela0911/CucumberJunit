@@ -17,34 +17,34 @@
 ## (Comments)
 #Sample Feature Definition Template
 @tag
-Feature: Mobile Purchase
+Feature: TV Purchase
 
-  @mobile
-  Scenario: Mobile
-   Given user lanuch flipkart
-    And user login into flipkart
-  When user search mobile
-   And user choose the mobile and doing payment
-  Then user receive order confirmation message
-   
-@smoke
-  Scenario: Mobile one dim list
+ 
+ Scenario: TV
    Given user lanuch flipkart
    And user login into flipkart
-  When user search mobile by using one dim list
-   |iphone|realme|
-  And user choose the mobile and doing payment
-    Then user receive order confirmation message
+   When user search TV
+   And user choose the TV and doing payment
+   Then user receive order confirmation message
    
-   @sanity
+
+ Scenario: Mobile one dim list
+   Given user lanuch flipkart
+  And user login into flipkart
+  When user search TV by using one dim list
+  |samsung TV|onida TV|
+  And user choose the TV and doing payment
+ Then user receive order confirmation message
+   
+  
   Scenario: Mobile one dim map
     Given user lanuch flipkart
     And user login into flipkart
-    When user search mobile by using one dim map
-   | phone1 | realme |
-   | phone2 | oppo |
-   | phone3 | iphone |
-    And user choose the mobile and doing payment
+    When user search TV by using one dim map
+   | TV1 |samsung TV|
+   | TV2 | onida TV |
+   | TV3 | philips TV |
+    And user choose the TV and doing payment
     Then user receive order confirmation message
    
    

@@ -19,20 +19,31 @@
 @tag
 Feature: Mobile Purchase
 
-  @tag1
+  @mobile
   Scenario: Mobile
-    Given user lanuch flipkart
+   Given user lanuch flipkart
     And user login into flipkart
-    When user search mobile
-    And user choose the mobile and doing payment
+  When user search mobile
+   And user choose the mobile and doing payment
+  Then user receive order confirmation message
+   
+@smoke
+  Scenario: Mobile one dim list
+   Given user lanuch flipkart
+   And user login into flipkart
+  When user search mobile by using one dim list
+   |iphone|realme|
+  And user choose the mobile and doing payment
     Then user receive order confirmation message
    
- @tag1
-  Scenario: Mobile one dim list
+   @sanity
+  Scenario: Mobile one dim map
     Given user lanuch flipkart
     And user login into flipkart
-    When user search mobile by using one dim list
-   |iphone|realme|
+    When user search mobile by using one dim map
+   | phone1 | realme |
+   | phone2 | oppo |
+   | phone3 | iphone |
     And user choose the mobile and doing payment
     Then user receive order confirmation message
    
